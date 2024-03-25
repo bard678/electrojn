@@ -267,6 +267,7 @@ return WillPopScope(
               ],
             ),
             bottom: TabBar(
+              isScrollable: true,
               indicatorColor:Colors.green ,
               dividerColor: Colors.green,
               labelColor: Colors.green,

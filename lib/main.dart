@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import 'package:untitled2/settings.dart';
+import 'package:untitled2/voltage.dart';
 import 'package:untitled2/voltage_divider.dart';
 
 void main() {
@@ -29,9 +30,10 @@ class MyApp extends StatelessWidget {
       create:(context)=>ThemeGo() ,
       child: Consumer<ThemeGo>(
        builder: (b,i,c)=> MaterialApp(
+         theme: _data,
          debugShowCheckedModeBanner: false,
          title: 'Flutter Demo',
-         theme: _data,
+
          home: const MyHomePage(title: 'Flutter Demo Home Page'),
        ),
       ),
@@ -106,6 +108,14 @@ shrinkWrap: true,
               {
                 setState(() {
                   Navigator.push(context, MaterialPageRoute(builder: (builder)=>const VoltageDivider(
+                  )));
+                });
+              }
+              if(i==2)
+              {
+                setState(() {
+                  Navigator.push(context, MaterialPageRoute(builder: (builder)=> VoltageDiv(
+                    data:_data
                   )));
                 });
               }
@@ -222,7 +232,7 @@ return WillPopScope(
             }),const Text("Don't ask me again"),
           ],),
           actions: [
-            TextButton(onPressed: (){}, child: const Text("No",style: TextStyle(color: Colors.green),)),
+            TextButton(onPressed: (){}, child:  Text("No",style: TextStyle(color: Colors.green),)),
             TextButton(onPressed: (){
 
             }, child: const Text("Yes",style: TextStyle(color: Colors.green),))

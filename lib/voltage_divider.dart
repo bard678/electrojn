@@ -70,119 +70,134 @@ class _VoltageDividerState extends State<VoltageDivider> {
           backgroundColor: Colors.green,
           title: const Text("Voltage divider",style: TextStyle(fontSize: 18),),
         ),
-        body: Column(
-          children: [
-            const SizedBox(height: 20,),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(5, 0, 10, 0),
-                child: Stack(
-                  children: [
-                    SizedBox(
-                        width: 400,
-                        child: Image.asset("assets/voltagedivider.PNG")),
-                    Padding(
-                        padding: const EdgeInsets.fromLTRB(200, 70, 50, 50),
-                        child:
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Cont(  index: 0,),
-                            const SizedBox(height: 120,),
-                            Row(
-                              children: [
-                                Cont(  index: 1,),const SizedBox(width: 55,),   Cont(  index: 2,),
-                              ],
-                            ),
+        body: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Column(
+           crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 20,),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(5, 0, 10, 0),
+                  child: Stack(
+                    children: [
+                      SizedBox(
+                          width: 400,
+                          child: Image.asset("assets/voltagedivider.PNG")),
+                      Padding(
+                          padding: const EdgeInsets.fromLTRB(200, 70, 50, 50),
+                          child:
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Cont(  index: 0,),
+                              const SizedBox(height: 120,),
+                              Row(
+                                children: [
+                                  Cont(  index: 1,),const SizedBox(width: 55,),   Cont(  index: 2,),
+                                ],
+                              ),
 
+                            ],
+                          )
+                      ), Padding(
+                        padding: const EdgeInsets.fromLTRB(280, 100, 50, 50),
+                        child: Column(
+                          children: [
+                            GestureDetector(
+                              onTap: (){
+                                if(loadConnecting)
+                                {
+                                  setState(() {
+                                    loadColor=Colors.green.shade400;
+                                    loadConnecting=false;
+                                    loadText="Disconnecting  \n    load";
+                                  });
+                                }else
+                                {
+                                  setState(() {
+                                    loadColor=Colors.red.shade400;
+                                    loadConnecting=true;
+                                    loadText="Connecting  \n    load";
+                                  });
+                                }
+                              },
+                              child: Container(
+                                width: 100,
+                                height: 40,decoration: BoxDecoration(
+                                  color: loadColor,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: loadColor,
+                                      blurRadius: 2,
+                                      spreadRadius: 1,
+                                      offset: const Offset(2, 2),
+                                    ),
+                                    BoxShadow(
+                                      color:loadColor,
+                                      offset: const Offset(-2,- 2),
+                                      blurRadius: 2,
+                                      spreadRadius: 2,
+                                    )]
+                              ),
+                                child: Center(child: Padding(
+                                  padding: const EdgeInsets.all(1.0),
+                                  child: Text(loadText,style: const TextStyle(fontSize: 15),),
+                                )),
+                              ),
+                            ),
+                            const SizedBox(height: 30,),
+                            loadConnecting?   Container(
+                              width: 40,
+                              color: Colors.white,height: 5,):const SizedBox(),
                           ],
-                        )
-                    ), Padding(
-                      padding: const EdgeInsets.fromLTRB(280, 100, 50, 50),
-                      child: Column(
+                        ),
+                      ),
+
+                      Row(
                         children: [
-                          GestureDetector(
-                            onTap: (){
-                              if(loadConnecting)
-                              {
-                                setState(() {
-                                  loadColor=Colors.green.shade400;
-                                  loadConnecting=false;
-                                  loadText="Disconnecting  \n    load";
-                                });
-                              }else
-                              {
-                                setState(() {
-                                  loadColor=Colors.red.shade400;
-                                  loadConnecting=true;
-                                  loadText="Connecting  \n    load";
-                                });
-                              }
-                            },
-                            child: Container(
-                              width: 100,
-                              height: 40,decoration: BoxDecoration(
-                                color: loadColor,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: loadColor,
-                                    blurRadius: 2,
-                                    spreadRadius: 1,
-                                    offset: const Offset(2, 2),
-                                  ),
-                                  BoxShadow(
-                                    color:loadColor,
-                                    offset: const Offset(-2,- 2),
-                                    blurRadius: 2,
-                                    spreadRadius: 2,
-                                  )]
-                            ),
-                              child: Center(child: Padding(
-                                padding: const EdgeInsets.all(1.0),
-                                child: Text(loadText,style: const TextStyle(fontSize: 15),),
-                              )),
-                            ),
+                          const SizedBox(width: 70,),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 80, 0, 40),
+                            child:   Cont(  index: 3,),
+                            //battery_voltage
                           ),
-                          const SizedBox(height: 30,),
-                          loadConnecting?   Container(
-                            width: 40,
-                            color: Colors.white,height: 5,):const SizedBox(),
+                          const SizedBox(width: 170,),
+
+                          Column(crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              input.isNotEmpty?
+
+                              Text( loadConnecting?'${bat*res1/(res1+res2)}  V':'${bat*res1/(((res2*res3)/(res2+res3))+res1)}  V',style: const TextStyle(color: Colors.green),) :const Text(""),
+                              const SizedBox(height: 130,)
+                              ,Row(
+                                children: [
+                                  input.isNotEmpty?
+                                  Text(loadConnecting?'${bat*res2/(res2+res1)} V':'${bat*((res2*res3)/(res2+res3))/(((res2*res3)/(res2+res3))+res1)} V',style: const TextStyle(color: Colors.green),):const Text(""),
+                                ],
+                              ),
+                            ],
+                          ),
                         ],
                       ),
-                    ),
 
-                    Row(
-                      children: [
-                        const SizedBox(width: 70,),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 80, 0, 40),
-                          child:   Cont(  index: 3,),
-                          //battery_voltage
-                        ),
-                        const SizedBox(width: 170,),
-
-                        Column(crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            input.isNotEmpty?
-
-                            Text( loadConnecting?'${bat*res1/(res1+res2)}  V':'${bat*res1/(((res2*res3)/(res2+res3))+res1)}  V',style: const TextStyle(color: Colors.green),) :const Text(""),
-                            const SizedBox(height: 130,)
-                            ,Row(
-                              children: [
-                                input.isNotEmpty?
-                                Text(loadConnecting?'${bat*res2/(res2+res1)} V':'${bat*((res2*res3)/(res2+res3))/(((res2*res3)/(res2+res3))+res1)} V',style: const TextStyle(color: Colors.green),):const Text(""),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Circuit Description:"),SizedBox(height: 20,),
+                       Text("This circuit consists of the following components:\nBattery: Provides a constant voltage source (V_batt) that powers the circuit.\nResistors:R1: Connected in series with the battery. \nIt offers resistance to the current flow, causing a voltage drop across it (V_R1).R2 and R3: Connected in parallel. Since they have equal values (R2 = R3), they act as a single equivalent resistor (R_pa"),
 
                   ],
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),)
     );

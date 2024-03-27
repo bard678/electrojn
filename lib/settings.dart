@@ -23,7 +23,7 @@ List<IconData> icons=[Icons.exit_to_app,Icons.language,Icons.room_preferences_ou
     
     return  Scaffold(
       appBar: AppBar(
-        title: Text("Settings"),
+        title: const Text("Settings"),
         // backgroundColor: Colors.green,
       ),
       body: Padding(
@@ -33,11 +33,11 @@ List<IconData> icons=[Icons.exit_to_app,Icons.language,Icons.room_preferences_ou
            Column(
              crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                 child: Text("Application preferences",style: TextStyle(color: Colors.green),),
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height-AppBar().preferredSize.height-40,
                 child: ListView.builder(itemCount: title.length,itemBuilder: (context,i){
 
@@ -48,16 +48,16 @@ List<IconData> icons=[Icons.exit_to_app,Icons.language,Icons.room_preferences_ou
                           activeColor: Colors.green,
                             value: checked, onChanged: (v){setState(() {
                           checked=v!;
-                            });}):SizedBox(),
+                            });}):const SizedBox(),
                         onTap: (){
                         if(i==2){
                           showDialog(context: context, builder: (builder)=>StatefulBuilder(
                             builder: (c,set){return
                               AlertDialog(
-                                shape: RoundedRectangleBorder(
+                                shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.zero
                                 ),
-                                title: Row(
+                                title: const Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     Text("Choose theme"),
@@ -80,7 +80,7 @@ List<IconData> icons=[Icons.exit_to_app,Icons.language,Icons.room_preferences_ou
                                         }
                                           ,
                                         ),
-                                        SizedBox(width: 20,),  Text('Light'),
+                                        const SizedBox(width: 20,),  const Text('Light'),
                                       ],
                                     ),
                                     Row(
@@ -96,8 +96,8 @@ List<IconData> icons=[Icons.exit_to_app,Icons.language,Icons.room_preferences_ou
                                         } );}
                                           ,
                                         ) ,
-                                        SizedBox(width: 20,),
-                                        Text('Dark'),
+                                        const SizedBox(width: 20,),
+                                        const Text('Dark'),
 
                                       ],
                                     ),
@@ -111,7 +111,7 @@ List<IconData> icons=[Icons.exit_to_app,Icons.language,Icons.room_preferences_ou
                         },
                       leading: Icon(icons[i]),
                         title: Text(title[i]),subtitle: Text(supTitle[i]),),
-                      Divider(
+                      const Divider(
                         height: 2,
                       )
                     ],

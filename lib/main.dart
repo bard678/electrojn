@@ -9,7 +9,7 @@ void main() {
 }
 
 class ThemeGo extends ChangeNotifier{
-  ThemeData _themeData=ThemeData.light();
+  final ThemeData _themeData=ThemeData.light();
   ThemeData get theme{
     return _themeData;
   }
@@ -91,7 +91,7 @@ shrinkWrap: true,
     itemBuilder: (c,i){
       return Slidable(
         startActionPane: ActionPane(
-            motion: ScrollMotion(), children: [
+            motion: const ScrollMotion(), children: [
           SlidableAction(
               icon: Icons.delete
               ,onPressed: (c){setState(() {
@@ -105,14 +105,14 @@ shrinkWrap: true,
               if(i==6)
               {
                 setState(() {
-                  Navigator.push(context, MaterialPageRoute(builder: (builder)=>VoltageDivider(
+                  Navigator.push(context, MaterialPageRoute(builder: (builder)=>const VoltageDivider(
                   )));
                 });
               }
               },
-              title:Text( calculations[i],style: TextStyle(fontSize: 14),),
+              title:Text( calculations[i],style: const TextStyle(fontSize: 14),),
             ),
-            Divider(
+            const Divider(
               height: 2,
             )
           ],
@@ -124,7 +124,7 @@ shrinkWrap: true,
     itemBuilder: (c,i){
       return Slidable(
         startActionPane: ActionPane(
-            motion: ScrollMotion(), children: [
+            motion: const ScrollMotion(), children: [
           SlidableAction(
               icon: Icons.delete
               ,onPressed: (c){setState(() {
@@ -134,9 +134,9 @@ shrinkWrap: true,
         child: Column(
           children: [
             ListTile(
-              title:Text( mostCommon[i],style: TextStyle(fontSize: 14),),
+              title:Text( mostCommon[i],style: const TextStyle(fontSize: 14),),
             ),
-            Divider(
+            const Divider(
               height: 2,
             )
           ],
@@ -148,7 +148,7 @@ shrinkWrap: true,
     itemBuilder: (c,i){
       return Slidable(
         startActionPane: ActionPane(
-            motion: ScrollMotion(), children: [
+            motion: const ScrollMotion(), children: [
           SlidableAction(
               icon: Icons.delete
               ,onPressed: (c){setState(() {
@@ -158,9 +158,9 @@ shrinkWrap: true,
         child: Column(
           children: [
             ListTile(
-              title:Text( commonMistak[i],style: TextStyle(fontSize: 14),),
+              title:Text( commonMistak[i],style: const TextStyle(fontSize: 14),),
             ),
-            Divider(height: 2,)
+            const Divider(height: 2,)
           ],
         ),
       );
@@ -170,14 +170,14 @@ shrinkWrap: true,
       itemBuilder: (c,i){
         return Slidable(
           startActionPane: ActionPane(
-              motion: ScrollMotion(), children: [
+              motion: const ScrollMotion(), children: [
             SlidableAction(
                 icon: Icons.delete
                 ,onPressed: (c){setState(() {
               g.removeAt(i);
             });})
           ]),
-          child: ListTile(
+          child: const ListTile(
             title:Text( "hi1"),
           ),
         );
@@ -187,14 +187,14 @@ shrinkWrap: true,
       itemBuilder: (c,i){
         return Slidable(
           startActionPane: ActionPane(
-              motion: ScrollMotion(), children: [
+              motion: const ScrollMotion(), children: [
             SlidableAction(
                 icon: Icons.delete
                 ,onPressed: (c){setState(() {
               g.removeAt(i);
             });})
           ]),
-          child: ListTile(
+          child: const ListTile(
             title:Text( "hi1"),
           ),
         );
@@ -205,10 +205,10 @@ return WillPopScope(
     return await showDialog(context: context, builder: (builder)=>StatefulBuilder(
       builder: (BuildContext context,set) {
         return  AlertDialog(
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.zero
           ),
-          title: Text("Are you sure you want to exit?",style: TextStyle(color: Colors.grey,fontSize: 18),),
+          title: const Text("Are you sure you want to exit?",style: TextStyle(color: Colors.grey,fontSize: 18),),
           content: Row(children: [
             Checkbox(
                 activeColor: Colors.green,
@@ -219,13 +219,13 @@ return WillPopScope(
               set(() {
                 ask=v!;
               });
-            }),Text("Don't ask me again"),
+            }),const Text("Don't ask me again"),
           ],),
           actions: [
-            TextButton(onPressed: (){}, child: Text("No",style: TextStyle(color: Colors.green),)),
+            TextButton(onPressed: (){}, child: const Text("No",style: TextStyle(color: Colors.green),)),
             TextButton(onPressed: (){
 
-            }, child: Text("Yes",style: TextStyle(color: Colors.green),))
+            }, child: const Text("Yes",style: TextStyle(color: Colors.green),))
           ],
         ); },
     ),
@@ -239,13 +239,13 @@ return WillPopScope(
   leading:  PopupMenuButton<String>(
     onSelected: (v){
       if(v=="s"){
-        Navigator.push(context, MaterialPageRoute(builder: (context){return SettingsScreen();}));
+        Navigator.push(context, MaterialPageRoute(builder: (context){return const SettingsScreen();}));
       }
       print(v);
     },
-    child: Icon(Icons.more_vert),
+    child: const Icon(Icons.more_vert),
       itemBuilder: (itemBuilder)=>
-  [  PopupMenuItem(
+  [  const PopupMenuItem(
     value: "s",
       child: Text("Settings"),
     ),
@@ -253,14 +253,14 @@ return WillPopScope(
   //   value: "s",
   //     child: Text("Settings"),
   //   ),
-  PopupMenuItem(
+  const PopupMenuItem(
     value: "sh",
       child: Text("Share"),
     ),
   ]
   ),
 
-            title: Row(
+            title: const Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text("ElectroJN",textAlign: TextAlign.left,),
@@ -278,14 +278,16 @@ return WillPopScope(
 
                   if(tap==4){setState(() {
                     addIcon=true;
-                  });}else setState(() {
+                  });}else {
+                    setState(() {
                     addIcon=false;
                   });
+                  }
                   print(i);
                   print(calculations.length);
                 });
               },
-                tabs: [
+                tabs: const [
                Tab(text: "Calculations",),
          Tab(text: "Most common circuits",),
          Tab(text: "Most common mistakes",),
@@ -300,7 +302,7 @@ return WillPopScope(
               addIcon==true?IconButton(onPressed: (){setState(() {
               g.add("a$_counter");
               ++_counter;
-            });}, icon: Icon(Icons.add)):SizedBox()],
+            });}, icon: const Icon(Icons.add)):const SizedBox()],
           ),
         body:body[tap]
         ),

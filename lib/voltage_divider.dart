@@ -7,7 +7,6 @@ double res1=1; double res2=2; double res3=3; double bat=3;
 String input="";
 class VoltageCalculator extends ChangeNotifier{
   double get res=>1;
-  String get _input=>"";
   void setRes(double res,int index){
     if(index==0){
       res1=res;
@@ -40,7 +39,7 @@ class VoltageDivider extends StatefulWidget {
 class _VoltageDividerState extends State<VoltageDivider> {
   Widget valueSelector=   Container(width: 40,height: 20,
 
-    decoration: BoxDecoration(
+    decoration: const BoxDecoration(
         color: Colors.white,
         boxShadow: [
 
@@ -69,14 +68,14 @@ class _VoltageDividerState extends State<VoltageDivider> {
       child:Consumer<VoltageCalculator>(builder: (b,k,c)=> Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.green,
-          title: Text("Voltage divider",style: TextStyle(fontSize: 18),),
+          title: const Text("Voltage divider",style: TextStyle(fontSize: 18),),
         ),
         body: Column(
           children: [
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             Center(
               child: Padding(
-                padding: EdgeInsets.fromLTRB(5, 0, 10, 0),
+                padding: const EdgeInsets.fromLTRB(5, 0, 10, 0),
                 child: Stack(
                   children: [
                     SizedBox(
@@ -89,10 +88,10 @@ class _VoltageDividerState extends State<VoltageDivider> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Cont(  index: 0,),
-                            SizedBox(height: 120,),
+                            const SizedBox(height: 120,),
                             Row(
                               children: [
-                                Cont(  index: 1,),SizedBox(width: 55,),   Cont(  index: 2,),
+                                Cont(  index: 1,),const SizedBox(width: 55,),   Cont(  index: 2,),
                               ],
                             ),
 
@@ -121,10 +120,6 @@ class _VoltageDividerState extends State<VoltageDivider> {
                               }
                             },
                             child: Container(
-                              child: Center(child: Padding(
-                                padding: const EdgeInsets.all(1.0),
-                                child: Text(loadText,style: TextStyle(fontSize: 15),),
-                              )),
                               width: 100,
                               height: 40,decoration: BoxDecoration(
                                 color: loadColor,
@@ -133,45 +128,49 @@ class _VoltageDividerState extends State<VoltageDivider> {
                                     color: loadColor,
                                     blurRadius: 2,
                                     spreadRadius: 1,
-                                    offset: Offset(2, 2),
+                                    offset: const Offset(2, 2),
                                   ),
                                   BoxShadow(
                                     color:loadColor,
-                                    offset: Offset(-2,- 2),
+                                    offset: const Offset(-2,- 2),
                                     blurRadius: 2,
                                     spreadRadius: 2,
                                   )]
                             ),
+                              child: Center(child: Padding(
+                                padding: const EdgeInsets.all(1.0),
+                                child: Text(loadText,style: const TextStyle(fontSize: 15),),
+                              )),
                             ),
                           ),
-                          SizedBox(height: 30,),
+                          const SizedBox(height: 30,),
                           loadConnecting?   Container(
                             width: 40,
-                            color: Colors.white,height: 5,):SizedBox(),
+                            color: Colors.white,height: 5,):const SizedBox(),
                         ],
                       ),
                     ),
 
                     Row(
                       children: [
-                        SizedBox(width: 70,),
+                        const SizedBox(width: 70,),
                         Padding(
                           padding: const EdgeInsets.fromLTRB(0, 80, 0, 40),
                           child:   Cont(  index: 3,),
                           //battery_voltage
                         ),
-                        SizedBox(width: 170,),
+                        const SizedBox(width: 170,),
 
                         Column(crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             input.isNotEmpty?
 
-                            Text( loadConnecting?'${bat*res1/(res1+res2)}  V':'${bat*res1/(((res2*res3)/(res2+res3))+res1)}  V',style: TextStyle(color: Colors.green),) :Text(""),
-                            SizedBox(height: 130,)
+                            Text( loadConnecting?'${bat*res1/(res1+res2)}  V':'${bat*res1/(((res2*res3)/(res2+res3))+res1)}  V',style: const TextStyle(color: Colors.green),) :const Text(""),
+                            const SizedBox(height: 130,)
                             ,Row(
                               children: [
                                 input.isNotEmpty?
-                                Text(loadConnecting?'${bat*res2/(res2+res1)} V':'${bat*((res2*res3)/(res2+res3))/(((res2*res3)/(res2+res3))+res1)} V',style: TextStyle(color: Colors.green),):Text(""),
+                                Text(loadConnecting?'${bat*res2/(res2+res1)} V':'${bat*((res2*res3)/(res2+res3))/(((res2*res3)/(res2+res3))+res1)} V',style: const TextStyle(color: Colors.green),):const Text(""),
                               ],
                             ),
                           ],
@@ -201,7 +200,7 @@ class Cont extends StatefulWidget {
 
 class _ContState extends State<Cont> {
 
-  TextEditingController _controller=TextEditingController();
+  final TextEditingController _controller=TextEditingController();
   String defaultValue="";
   @override
   Widget build(BuildContext context) {
@@ -258,12 +257,12 @@ class _ContState extends State<Cont> {
 
                     });
 
-                  });} , child: Text("Save",style: TextStyle(color: Colors.green),)),
+                  });} , child: const Text("Save",style: TextStyle(color: Colors.green),)),
                   TextButton(onPressed: (){setState(() {
                     Navigator.pop(context);
-                  });} , child: Text("Cancel",style: TextStyle(color: Colors.green))),
+                  });} , child: const Text("Cancel",style: TextStyle(color: Colors.green))),
                 ],
-                title: Text("Enter a value",style: TextStyle(fontSize: 16),),
+                title: const Text("Enter a value",style: TextStyle(fontSize: 16),),
                 content: SizedBox(
                   height: 150,
                   child: TextField(
@@ -273,7 +272,7 @@ class _ContState extends State<Cont> {
                     ],
                     cursorColor: Colors.green,
 
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
 
                         border: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.green,width: 2)
@@ -286,7 +285,7 @@ class _ContState extends State<Cont> {
                   ),
                 ),
 
-                shape: RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero
                 ),
 
@@ -294,10 +293,8 @@ class _ContState extends State<Cont> {
         });
       },
       child: Container(
-        child:_controller.text.isNotEmpty?
-        Text(widget.index==3? "${_controller.text}V" :_controller.text,style: TextStyle(color: Colors.red),): Text(defaultValue,style: TextStyle(color: Colors.red),),
         width: 40,height: 20,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             color: Colors.white,
             boxShadow: [
 
@@ -314,6 +311,8 @@ class _ContState extends State<Cont> {
                   offset: Offset(-3, -3)
               )
             ]
-        ),),
+        ),
+        child:_controller.text.isNotEmpty?
+        Text(widget.index==3? "${_controller.text}V" :_controller.text,style: const TextStyle(color: Colors.red),): Text(defaultValue,style: const TextStyle(color: Colors.red),),),
     );
 }}

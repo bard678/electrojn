@@ -64,6 +64,15 @@ flutter:
   assets:
     - assets/voltagedivider.PNG
     - assets/voltagediv.PNG
+    - assets/voltagediv.PNG
+    - assets/resistor.PNG
+    - assets/transistor.PNG
+    - assets/smdres.PNG
+    - assets/img.png
+    - assets/opamp.PNG
+    - assets/voltage.PNG
+    - assets/stepdown.PNG
+    - assets/flasher.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

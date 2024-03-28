@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           color: Colors.black,
           theme: _data,
           debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
+          title: 'ElectroJN',
 
           home: const MyHomePage(title: 'Flutter Demo Home Page'),
         ),
@@ -284,7 +284,7 @@ class _MyHomePageState extends State<MyHomePage> {
         length: 5,
         child: Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.blue,
               leading:  PopupMenuButton<String>(
                   onSelected: (v){
                     if(v=="s"){

@@ -7,7 +7,7 @@ import 'package:untitled2/voltage.dart';
 import 'package:untitled2/voltage_divider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class ThemeGo extends ChangeNotifier{
@@ -21,9 +21,28 @@ class ThemeGo extends ChangeNotifier{
   }
 }
 ThemeData _data=ThemeData.light();
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+   MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late Color screenPickerColor;
+
+  // Color for the picker in a dialog using onChanged.
+  late Color dialogPickerColor;
+
+  // Color for picker using the color select dialog.
+  late Color dialogSelectColor;
+  @override
+  void initState() {
+    super.initState;
+    screenPickerColor = Colors.blue;  // Material blue.
+    dialogPickerColor = Colors.red;   // Material red.
+    dialogSelectColor = const Color(0xFFA239CA); // A purple color.
+  }
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -250,6 +269,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ] ;
     return WillPopScope(
       onWillPop: ()async{
+
         return await showDialog(context: context, builder: (builder)=>StatefulBuilder(
           builder: (BuildContext context,set) {
             return  AlertDialog(
@@ -270,9 +290,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 }),const Text("Don't ask me again"),
               ],),
               actions: [
-                TextButton(onPressed: (){}, child:  const Text("No",style: TextStyle(color: Colors.green),)),
+                TextButton(onPressed: (){  Navigator.pop(context);}, child:  const Text("No",style: TextStyle(color: Colors.green),)),
                 TextButton(onPressed: (){
-
+                    Navigator.pop(context);
+                    Navigator.pop(context);
                 }, child: const Text("Yes",style: TextStyle(color: Colors.green),))
               ],
             ); },

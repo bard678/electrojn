@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 class ColoredResistors extends StatefulWidget {
    ColoredResistors({super.key});
@@ -8,298 +9,162 @@ class ColoredResistors extends StatefulWidget {
 }
 
 class _ColoredResistorsState extends State<ColoredResistors> {
+Color pickerColor=Colors.blue;
+Color pickerColor1=Colors.blue;
+Color pickerColor2=Colors.blue;
+Color pickerColor3=Colors.blue;
+Color pickerColor4=Colors.blue;
+Color pickerColor5=Colors.blue;
 
-
-
-  List<Widget> brand0 =[
-    Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Container(),
-        SizedBox(height: 150,),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
+void PickColor(int index){
+  showDialog(context: context, builder: (b)=>AlertDialog(
+    content:BlockPicker(
+      availableColors: [
+        Colors.green,
+        Colors.blue,
+        Colors.purple,
+        Colors.red,
+        Colors.brown,
+        Colors.orange,
+        Colors.black,
+        Color.lerp(Colors.white, Colors.grey, 0.3)!,
+        Colors.grey
       ],
-    ),
-    Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Container(),
-        SizedBox(height: 150,),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
 
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
+        pickerColor: pickerColor, onColorChanged: (v){setState(() {
+   if(index==0){pickerColor=v;}
+   else  if(index==1){pickerColor1=v;}
+   else  if(index==2){pickerColor2=v;}
+   else  if(index==3){pickerColor3=v;}
+   else  if(index==4){pickerColor4=v;}
+   else  if(index==5){pickerColor5=v;}
+    });})
+  ));
+}
 
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-
-      ],
-    ),
-    Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Container(),
-        SizedBox(height: 150,),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-
-      ],
-    ),
-    Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Container(),
-        SizedBox(height: 150,),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-            Container(color: Colors.black,width: 30,height: 20,),
-
-          ],
-        ),
-
-      ],
-    )
-                      ];
   String brand="l";
   int index=0;
   @override
   Widget build(BuildContext context) {
+    List<Widget> brand0 =[
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          SizedBox(width: 40,),
+          GestureDetector(
+              onTap: (){
+                PickColor(0);
+              },
+              child: Container(color: pickerColor,width: 200,height: 100,)),SizedBox(width: 40,),
+          GestureDetector(
+              onTap: (){
+                PickColor(1);
+              },
+              child: Container(color: pickerColor1,width: 200,height: 100,)),SizedBox(width: 40,),
+          GestureDetector(
+              onTap: (){
+                PickColor(2);
+              },
+              child: Container(color: pickerColor2,width: 200,height: 100,)),
+
+        ],
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          GestureDetector(
+              onTap: (){
+                PickColor(0);
+              },
+              child: Container(color: pickerColor,width: 200,height: 100,)),
+          GestureDetector(
+              onTap: (){
+                PickColor(1);
+              },
+              child: Container(color: pickerColor1,width: 200,height: 100,)),
+          GestureDetector(
+              onTap: (){
+                PickColor(2);
+              },
+              child: Container(color: pickerColor2,width: 200,height: 100,)),
+          GestureDetector(
+              onTap: (){
+                PickColor(3);
+              },
+              child: Container(color: pickerColor3,width: 200,height: 100,)),
+
+        ],
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          GestureDetector(
+              onTap: (){
+                PickColor(0);
+              },
+              child: Container(color: pickerColor,width: 200,height: 100,)),
+          GestureDetector(
+              onTap: (){
+                PickColor(1);
+              },
+              child: Container(color: pickerColor1,width: 200,height: 100,)),
+          GestureDetector(
+              onTap: (){
+                PickColor(2);
+              },
+              child: Container(color: pickerColor2,width: 200,height: 100,)),
+          GestureDetector(
+              onTap: (){
+                PickColor(3);
+              },
+              child: Container(color: pickerColor3,width: 200,height: 100,)),
+          GestureDetector(
+              onTap: (){
+                PickColor(4);
+              },
+              child: Container(color: pickerColor4,width: 200,height: 100,)),
+
+        ],
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          GestureDetector(
+              onTap: (){
+                PickColor(0);
+              },
+              child: Container(color: pickerColor,width: 200,height: 100,)),SizedBox(width: 40,),
+          GestureDetector(
+              onTap: (){
+                PickColor(1);
+              },
+              child: Container(color: pickerColor1,width: 200,height: 100,)),SizedBox(width: 40,),
+          GestureDetector(
+              onTap: (){
+                PickColor(2);
+              },
+              child: Container(color: pickerColor2,width: 200,height: 100,)),SizedBox(width: 40,),
+          GestureDetector(
+              onTap: (){
+                PickColor(3);
+              },
+              child: Container(color: pickerColor3,width: 200,height: 100,)),SizedBox(width: 40,),
+          GestureDetector(
+              onTap: (){
+                PickColor(4);
+              },
+              child: Container(color: pickerColor4,width: 200,height: 100,)),SizedBox(width: 40,),
+          GestureDetector(
+              onTap: (){
+                PickColor(5);
+              },
+              child: Container(color: pickerColor5,width: 200,height: 100,)),
+
+        ],
+      ),
+
+
+    ];
     return Scaffold(
       appBar: AppBar(
    actions: [
@@ -357,7 +222,14 @@ class _ColoredResistorsState extends State<ColoredResistors> {
         backgroundColor: Colors.green,
         title: Text("Resistors calculator",style: TextStyle(fontSize: 20),
       ),),
-      body:brand0[index]
+      body:Column(
+        children: [
+          SizedBox(height: 200,),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+              child: brand0[index]),
+        ],
+      )
     );
   }
 }
